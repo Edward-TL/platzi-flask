@@ -22,10 +22,19 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                {% if current_user.is_authenticated %}
+                    <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                {% endif%}
+
+                {% if current_user.is_anonymous %}
+                    <li><a href="{{ url_for('auth.signup') }}">Signup</a></li>
+                {% endif %}
+
                 <li><a href="{{ url_for('index') }}">Inicio</a></li>
                 <li><a href="https://platzi.com/@Edward_TL/" target="_blank">Platzi</a></li>
                 <li><a href="https://github.com/Edward-TL" target="_blank">GitHub</a></li>
                 <li><a href="https://www.kaggle.com/edwardtoledolpez" target="_blank">Kaggle</a></li>
+                
             </ul>
         </div>
     </div>
